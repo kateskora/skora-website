@@ -353,10 +353,11 @@
         <h2>Ready to move forward</h2>
         <p>Let's talk about what's possible when strategy meets execution in your operation.</p>
       </div>
-      <form class="form" action="https://formsubmit.co/kate@skora.net.au" method="POST">
-        <input type="hidden" name="_subject" value="New enquiry from skora.net.au">
-        <input type="hidden" name="_captcha" value="false">
-        <input type="text" name="_honey" style="display:none">
+      <form class="form" action="https://api.web3forms.com/submit" method="POST">
+        <input type="hidden" name="access_key" value="9ba54ba5-543f-4685-92d5-23e4ace2730d">
+        <input type="hidden" name="subject" value="New enquiry from skora.net.au">
+        <input type="hidden" name="from_name" value="Skora website">
+        <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off">
         <div>
           <label for="f-name">Name</label>
           <input id="f-name" type="text" name="name" placeholder="Your name" required>
@@ -370,6 +371,7 @@
           <textarea id="f-msg" name="message" rows="5" placeholder="What are you trying to achieve?" required></textarea>
         </div>
         <button class="btn btn-light" type="submit">Send message</button>
+        <p class="form-status" role="status" aria-live="polite" style="display:none; text-align:center; font-weight:600; margin-top:4px;"></p>
       </form>
       <p class="contact-alt">Or email directly: <a href="mailto:kate@skora.net.au">kate@skora.net.au</a></p>
     </div>
@@ -385,5 +387,31 @@
   </div>
 </footer>
 
+<script>
+document.querySelector('.form').addEventListener('submit', async function (e) {
+  e.preventDefault();
+  const form = this;
+  const status = form.querySelector('.form-status');
+  const button = form.querySelector('button[type="submit"]');
+  button.disabled = true;
+  button.textContent = 'Sending…';
+  status.style.display = 'none';
+  try {
+    const res = await fetch('https://api.web3forms.com/submit', { method: 'POST', body: new FormData(form) });
+    const data = await res.json();
+    if (data.success) {
+      status.textContent = "Thanks — your message has been sent. We'll be in touch soon.";
+      form.reset();
+    } else {
+      status.textContent = "Sorry, something went wrong. Please email us directly at kate@skora.net.au.";
+    }
+  } catch (err) {
+    status.textContent = "Sorry, something went wrong. Please email us directly at kate@skora.net.au.";
+  }
+  status.style.display = 'block';
+  button.disabled = false;
+  button.textContent = 'Send message';
+});
+</script>
 </body>
 </html>
