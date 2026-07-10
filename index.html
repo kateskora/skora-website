@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Skora Consulting — Empower the journey. Transform the future.</title>
+<meta name="description" content="Skora Consulting helps clients in the mining, METS and related sectors tackle complex problems — bespoke teams, real value, an alternative to large consulting organisations.">
+<link rel="icon" href="assets/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16x16.png">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<meta property="og:title" content="Skora Consulting">
+<meta property="og:description" content="Empower the journey. Transform the future.">
+<meta property="og:url" content="https://www.skora.net.au">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Open+Sans:ital,wght@0,300;0,400;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --burgundy: #652240;
+    --burgundy-dark: #4d1a31;
+    --black: #231F20;
+    --ink: #2e2a2b;
+    --grey: #6b6466;
+    --paper: #ffffff;
+    --blush: #f7f2f4;
+    --line: #e6dde1;
+    --serif: 'Playfair Display', Georgia, serif;
+    --sans: 'Open Sans', Arial, sans-serif;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: var(--sans);
+    font-weight: 400;
+    color: var(--ink);
+    background: var(--paper);
+    line-height: 1.7;
+    font-size: 17px;
+  }
+  img { max-width: 100%; }
+  .wrap { max-width: 1080px; margin: 0 auto; padding: 0 24px; }
+
+  h1, h2, h3 { font-family: var(--serif); color: var(--black); line-height: 1.15; }
+  .eyebrow {
+    display: block;
+    font-family: var(--sans);
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--burgundy);
+    margin-bottom: 14px;
+  }
+  .section { padding: 96px 0; }
+  .section-head { max-width: 640px; margin: 0 auto 56px; text-align: center; }
+  .section-head h2 { font-size: clamp(30px, 4vw, 42px); margin-bottom: 14px; }
+  .section-head p { color: var(--grey); }
+
+  .btn {
+    display: inline-block;
+    font-family: var(--sans);
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: 0.03em;
+    text-decoration: none;
+    padding: 13px 30px;
+    border-radius: 3px;
+    transition: background .2s, color .2s, border-color .2s;
+    cursor: pointer;
+    border: 1.5px solid var(--burgundy);
+  }
+  .btn-solid { background: var(--burgundy); color: #fff; }
+  .btn-solid:hover { background: var(--burgundy-dark); border-color: var(--burgundy-dark); }
+  .btn-ghost { color: var(--burgundy); background: transparent; }
+  .btn-ghost:hover { background: var(--burgundy); color: #fff; }
+  .btn-light { border-color: #fff; color: var(--burgundy); background: #fff; }
+  .btn-light:hover { background: transparent; color: #fff; }
+
+  /* ---------- Nav ---------- */
+  header {
+    position: sticky; top: 0; z-index: 50;
+    background: rgba(255,255,255,.96);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--line);
+  }
+  .nav { display: flex; align-items: center; justify-content: space-between; height: 74px; }
+  .nav-logo img { height: 42px; display: block; }
+  .nav-links { display: flex; align-items: center; gap: 34px; list-style: none; }
+  .nav-links a { text-decoration: none; color: var(--ink); font-size: 15px; font-weight: 400; }
+  .nav-links a:hover { color: var(--burgundy); }
+  .nav-links .btn { padding: 9px 22px; }
+  @media (max-width: 760px) {
+    .nav-links li { display: none; }
+    .nav-links li:last-child { display: block; }
+  }
+
+  /* ---------- Hero ---------- */
+  .hero { position: relative; overflow: hidden; background: var(--blush); }
+  .hero .wrap { position: relative; padding-top: 110px; padding-bottom: 120px; max-width: 860px; text-align: center; }
+  .hero-mark {
+    position: absolute; right: -140px; bottom: -180px;
+    width: 560px; opacity: .07; pointer-events: none;
+  }
+  .hero h1 { font-size: clamp(38px, 6vw, 62px); margin-bottom: 26px; }
+  .hero h1 em { font-style: normal; color: var(--burgundy); }
+  .hero p { max-width: 620px; margin: 0 auto 18px; color: var(--grey); font-size: 18px; }
+  .hero-cta { margin-top: 36px; display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+
+  /* ---------- Brand band ---------- */
+  .brand-band { background: var(--black); color: #fff; text-align: center; }
+  .brand-band .wrap { max-width: 760px; padding-top: 88px; padding-bottom: 88px; }
+  .brand-band img { height: 64px; margin-bottom: 30px; }
+  .brand-band h2 { color: #fff; font-size: clamp(26px, 3.5vw, 36px); margin-bottom: 20px; }
+  .brand-band p { color: rgba(255,255,255,.75); }
+  .brand-band .tagline {
+    margin-top: 28px; font-family: var(--serif); font-size: 21px; color: #fff; font-style: italic;
+  }
+
+  /* ---------- Cards ---------- */
+  .cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
+  @media (max-width: 860px) { .cards { grid-template-columns: 1fr; } }
+  .card {
+    border: 1px solid var(--line);
+    border-top: 3px solid var(--burgundy);
+    padding: 36px 30px;
+    background: #fff;
+  }
+  .card .kicker { font-size: 12px; font-weight: 600; letter-spacing: .2em; text-transform: uppercase; color: var(--burgundy); margin-bottom: 12px; }
+  .card h3 { font-size: 23px; margin-bottom: 14px; }
+  .card p { font-size: 15.5px; color: var(--grey); }
+
+  /* ---------- Who we are ---------- */
+  .who { background: var(--blush); }
+  .who-grid { display: grid; grid-template-columns: 340px 1fr; gap: 56px; align-items: start; }
+  @media (max-width: 860px) { .who-grid { grid-template-columns: 1fr; } }
+  .who-photo {
+    background: #fff; border: 1px solid var(--line);
+    aspect-ratio: 4 / 5; display: flex; align-items: center; justify-content: center;
+  }
+  .who-photo img.placeholder { width: 42%; opacity: .18; }
+  .who-photo img.headshot { width: 100%; height: 100%; object-fit: cover; }
+  .who-name { margin-top: 20px; text-align: center; }
+  .who-name strong { display: block; font-family: var(--serif); font-size: 21px; color: var(--black); }
+  .who-name span { font-size: 14.5px; color: var(--grey); }
+  .who-bio p { margin-bottom: 18px; font-size: 16px; }
+  .network {
+    margin-top: 64px; text-align: center; max-width: 640px;
+    margin-left: auto; margin-right: auto;
+    border-top: 1px solid var(--line); padding-top: 48px;
+  }
+  .network h3 { font-size: 26px; margin-bottom: 14px; }
+  .network p { color: var(--grey); margin-bottom: 10px; }
+
+  /* ---------- Approach ---------- */
+  .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; counter-reset: step; }
+  @media (max-width: 860px) { .steps { grid-template-columns: 1fr; } }
+  .step { padding: 8px 4px; }
+  .step .num {
+    font-family: var(--serif); font-size: 52px; color: var(--burgundy);
+    opacity: .35; line-height: 1; display: block; margin-bottom: 14px;
+  }
+  .step .kicker { font-size: 12px; font-weight: 600; letter-spacing: .2em; text-transform: uppercase; color: var(--burgundy); margin-bottom: 8px; }
+  .step h3 { font-size: 22px; margin-bottom: 12px; }
+  .step p { font-size: 15.5px; color: var(--grey); }
+
+  /* ---------- Contact ---------- */
+  .contact { background: var(--burgundy); color: #fff; }
+  .contact .section-head h2, .contact .section-head p { color: #fff; }
+  .contact .section-head p { opacity: .8; }
+  .contact .eyebrow { color: rgba(255,255,255,.7); }
+  .form {
+    max-width: 560px; margin: 0 auto;
+    display: grid; gap: 18px;
+  }
+  .form label { font-size: 14px; font-weight: 600; display: block; margin-bottom: 6px; }
+  .form input, .form textarea {
+    width: 100%; padding: 13px 15px;
+    border: 1px solid rgba(255,255,255,.35); border-radius: 3px;
+    background: rgba(255,255,255,.08); color: #fff;
+    font-family: var(--sans); font-size: 16px;
+  }
+  .form input::placeholder, .form textarea::placeholder { color: rgba(255,255,255,.45); }
+  .form input:focus, .form textarea:focus { outline: 2px solid rgba(255,255,255,.6); background: rgba(255,255,255,.12); }
+  .form button { justify-self: center; margin-top: 8px; }
+  .contact-alt { text-align: center; margin-top: 36px; font-size: 15.5px; opacity: .85; }
+  .contact-alt a { color: #fff; font-weight: 600; }
+
+  /* ---------- Footer ---------- */
+  footer { background: var(--black); color: rgba(255,255,255,.65); font-size: 14px; }
+  .foot { display: flex; align-items: center; justify-content: space-between; gap: 20px; padding: 34px 0; flex-wrap: wrap; }
+  .foot img { height: 34px; }
+  .foot a { color: rgba(255,255,255,.85); text-decoration: none; }
+  .foot a:hover { color: #fff; }
+  @media (max-width: 700px) {
+    .foot { flex-direction: column; text-align: center; gap: 12px; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a class="nav-logo" href="#top" aria-label="Skora Consulting home">
+      <img src="assets/skora-logo.svg" alt="Skora Consulting">
+    </a>
+    <ul class="nav-links">
+      <li><a href="#how-we-work">How we work</a></li>
+      <li><a href="#who-we-are">Who we are</a></li>
+      <li><a href="#approach">Our approach</a></li>
+      <li><a class="btn btn-solid" href="#contact">Contact us</a></li>
+    </ul>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- Hero -->
+  <section class="hero">
+    <img class="hero-mark" src="assets/skora-icon.svg" alt="" aria-hidden="true">
+    <div class="wrap">
+      <span class="eyebrow">Mining · METS · Complex change</span>
+      <h1>Bridge the gap between <em>teams and strategy</em></h1>
+      <p>Skora Consulting helps clients in the mining, METS and related sectors tackle complex problems that call for an alternative to the approach offered by large consulting organisations.</p>
+      <p>We build bespoke teams for the challenge at hand, combining the right expertise to deliver real value quickly — by focusing on the things that matter.</p>
+      <div class="hero-cta">
+        <a class="btn btn-solid" href="#contact">Start a conversation</a>
+        <a class="btn btn-ghost" href="#how-we-work">Learn more</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Brand band -->
+  <section class="brand-band">
+    <div class="wrap">
+      <img src="assets/skora-icon-white.svg" alt="Skora icon">
+      <h2>The Skora brand</h2>
+      <p>Skora takes its cue from the Vikings — who changed the culture of every place they went. We bring that same spirit to our clients' projects: challenging the status quo, questioning assumptions, and pairing deep technical experience with the courage to do things differently.</p>
+      <p class="tagline">Empower the journey. Transform the future.</p>
+    </div>
+  </section>
+
+  <!-- How we work -->
+  <section class="section" id="how-we-work">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">Capabilities</span>
+        <h2>How we work</h2>
+        <p>We adapt to your challenge, not the other way around.</p>
+      </div>
+      <div class="cards">
+        <div class="card">
+          <div class="kicker">Adaption</div>
+          <h3>Solutions built for complexity</h3>
+          <p>Complex change can arrive on any scale and any timeline. We bring flexibility and real-time adjustment, with a process that evolves alongside the problem rather than forcing it into a template.</p>
+        </div>
+        <div class="card">
+          <div class="kicker">Relationship</div>
+          <h3>Trust earned through action</h3>
+          <p>We invest in understanding your people, your culture and your constraints before we form a view of where we can add value. Trust is built by doing, not by decks.</p>
+        </div>
+        <div class="card">
+          <div class="kicker">Challenge</div>
+          <h3>Better outcomes through curiosity and honesty</h3>
+          <p>We get curious, push back when needed, and celebrate progress when earned. Honest conversations early beat expensive corrections later.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Who we are -->
+  <section class="section who" id="who-we-are">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">Leadership</span>
+        <h2>Who we are</h2>
+        <p>Seasoned practitioners who bring a valuable and proven blend of expertise.</p>
+      </div>
+      <div class="who-grid">
+        <div>
+          <div class="who-photo">
+            <!-- Replace the line below with: <img class="headshot" src="assets/kate.jpg" alt="Kate Gelsthorpe"> -->
+            <img class="placeholder" src="assets/skora-icon.svg" alt="">
+          </div>
+          <div class="who-name">
+            <strong>Kate Gelsthorpe (was Hobbs)</strong>
+            <span>Founder and Principal</span>
+          </div>
+        </div>
+        <div class="who-bio">
+          <p>Kate is a well-respected leader who unites cross-functional teams and levels to achieve significant organisational change. She partners with executive leadership to navigate complex transitions and establish organisations that are both resilient and responsive.</p>
+          <p>Bringing more than twenty years' experience from operational, project and consulting positions within the resources industry and other sectors, she is valued for her realistic perspective, dedication to lasting solutions, and talent for encouraging creativity and professional growth in demanding circumstances.</p>
+          <p>Kate's qualifications include degrees in Marketing and International Studies, a Master's in Mining Engineering, Lean Six Sigma Black Belt certification, AICD membership, and Fellowship of the SA Leadership Institute's Governor's Leadership Foundation.</p>
+          <p>Beyond restructuring governance and operational systems across numerous organisations, Kate has overseen the strategic reassessment of significant mining ventures — including major expansion and feasibility studies that unlocked long-term investment decisions and mine-life extensions.</p>
+          <p>Named one of the 100 Global Inspirational Women in Mining and a recipient of the AusIMM Minerals Sector Service Award, Kate is committed to amplifying underrepresented voices and advancing diversity and inclusion initiatives throughout the sector.</p>
+        </div>
+      </div>
+      <div class="network">
+        <h3>Broader network</h3>
+        <p>Skora Consulting engages experienced and trusted specialists across a wide variety of disciplines, depending on client and project needs.</p>
+        <p>For further detail on Skora's capability network, contact us to explore what might be relevant for what you're trying to achieve.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Approach -->
+  <section class="section" id="approach">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">Process</span>
+        <h2>Our approach in action</h2>
+        <p>We start by listening, then we build momentum together.</p>
+      </div>
+      <div class="steps">
+        <div class="step">
+          <span class="num">01</span>
+          <div class="kicker">Diagnosis</div>
+          <h3>Understanding your reality</h3>
+          <p>We spend time exploring critical artefacts, how you work, and talking to key stakeholders to build a clear picture of your current reality — with a fresh-eyes look at where smooth dynamics and opportunities may not have been visible before.</p>
+        </div>
+        <div class="step">
+          <span class="num">02</span>
+          <div class="kicker">Design</div>
+          <h3>Shaping the path forward</h3>
+          <p>Together we map options, test assumptions, and commit to a process of delivery. We focus on the process, as assuming the solution is clear before getting into the work can sometimes have you solving the wrong problem.</p>
+        </div>
+        <div class="step">
+          <span class="num">03</span>
+          <div class="kicker">Delivery</div>
+          <h3>Making change stick in your operation</h3>
+          <p>We stay embedded, adjusting as conditions shift and results emerge — so the change holds long after we step back.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section class="section contact" id="contact">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">Contact</span>
+        <h2>Ready to move forward</h2>
+        <p>Let's talk about what's possible when strategy meets execution in your operation.</p>
+      </div>
+      <form class="form" action="https://formsubmit.co/kate@skora.net.au" method="POST">
+        <input type="hidden" name="_subject" value="New enquiry from skora.net.au">
+        <input type="hidden" name="_captcha" value="false">
+        <input type="text" name="_honey" style="display:none">
+        <div>
+          <label for="f-name">Name</label>
+          <input id="f-name" type="text" name="name" placeholder="Your name" required>
+        </div>
+        <div>
+          <label for="f-email">Email</label>
+          <input id="f-email" type="email" name="email" placeholder="you@company.com" required>
+        </div>
+        <div>
+          <label for="f-msg">Message</label>
+          <textarea id="f-msg" name="message" rows="5" placeholder="What are you trying to achieve?" required></textarea>
+        </div>
+        <button class="btn btn-light" type="submit">Send message</button>
+      </form>
+      <p class="contact-alt">Or email directly: <a href="mailto:kate@skora.net.au">kate@skora.net.au</a></p>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <img src="assets/skora-logo-white.svg" alt="Skora Consulting">
+    <span>© 2026 Skora Consulting. All rights reserved.</span>
+    <a href="mailto:kate@skora.net.au">kate@skora.net.au</a>
+  </div>
+</footer>
+
+</body>
+</html>
